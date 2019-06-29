@@ -1,0 +1,47 @@
+header {
+    overflow: hidden;
+    background-color:blue;
+    color: white;
+    height:50px; 
+  }
+  
+  header a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+    margin-bottom:95px;
+  }
+
+  header a:hover {
+    background-color: black;
+    color: white;
+  }
+  
+
+  .header-right {
+    float: right;
+  }
+
+header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .head{
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+    margin-bottom:95px;
+
+  }
+  

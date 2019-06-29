@@ -1,0 +1,11 @@
+<header>
+    <div class="head">News-App</div>
+  
+      <div class="header-right">
+          <!-- <div *ngIf="logged=='yes'">Home</div>  -->
+          <!-- <a  href="signout " *ngIf="logged=='yes'">SignOut</a> -->
+          <button (click)="logout()"  *ngIf="logged=='no'"class="btn btn-light">Signout</button>
+          <a  href="signup " *ngIf="logged=='yes'">Signup</a>
+          <a href="login" *ngIf="logged=='yes'">Login</a>
+        </div>
+  </header>
