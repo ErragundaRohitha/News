@@ -5,22 +5,27 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 // import { FormGroup } from '@angular/forms';
 // import { SignupComponent } from './signup/signup.component';
+import { register } from './models/register.model';
+
+
+
+const httpOptions={
+  headers: new HttpHeaders({'Access-Control-Allow-Origin ': 'http://localhost:4200','Content-Type': 'application/json' }),
+ 
+};
 
 @Injectable({
   providedIn: 'root'
 })
-// const httpOptions = {
-//   headers: new HttpHeaders({
-//     'Content-Type':  'application/json',
-//     'Authorization': 'my-auth-token'
-//   })
-// };
+
 export class NewsApiService {
   api_key = '2222bb6f2728417e94a92dd2313ce4c6';
   language:String ='en';
   // postuser: 'registerForm';
 
   constructor(private http:HttpClient) { }
+  private userUrl = 'http://localhost:8080/empl/user/createuser'
+
   initSources(){
     return this.http.get('https://newsapi.org/v2/sources?language='+this.language+'&apiKey='+this.api_key);
  }
@@ -42,19 +47,11 @@ export class NewsApiService {
   }
   
  
- signup(getuser: String):Promise <any>
- 
- {
-   return this.http.get("http://localhost:8080/empl/login/"+ getuser).toPromise().then(response => response).catch(error=>Promise.reject(error.json || error))
- }
 
-//  signin(postuser: registerForm):Promise <any>
-//  Headers=new Headers({
-//   'Content-Type':'application/json'
-// })
- 
- 
-//    return this.http.post("http://localhost:8080/empl/login/user",JSON.stringify(reg),{headers:Headers}).toPromise().then(response => response).catch(error=>Promise.reject(error.json || error))
-// }
+  public createUser(user: register) :any {
+    console.log(this.userUrl)
+    return this.http.post<register>(this.userUrl,user);
+   
+  }
  
 }

@@ -1,28 +1,37 @@
+
 <div class="jumbotron">
-    <div class="container login-container">
-      <div class="row">
-          <div class="col-md-6 login-form">
-              <h3>Login</h3>
-              
-                  <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Your Email *" value="" required />
-                  </div>
-                  <div class="form-group">
-                      <input type="password" class="form-control" placeholder="Your Password *" value="" required/>
-                  </div>
-                  <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h2>Login</h2>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> 
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" formControlName="email" name="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" formControlName="password" name="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button  class="btn btn-primary" >Login</button>
+                        </div>
+                        <div class="form-group">
+                                <button  class="btn btn-primary" (click)="window.location.href='signup'">SignUp</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     
-                  
-                  <div class="form-group ">
-                    <!-- <a class="btn btn-light" value="Login" href="login()" role="button" >Login</a> -->
-                    <button (click)="login()" class="btn btn-light">Login</button>
-                  </div>
-                 
-                  <div class="form-group">
-                    <a class="btn btn-light" value="Sign-Up" href="signup" role="button" >SignUp</a>
-              
-                  </div>
-          </div>
-          </div>
-          </div>
-        </div> 
+    
+      

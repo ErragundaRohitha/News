@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { SignoutComponent } from './signout/signout.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
 path:'favourites',
 component:FavouritesComponent
+  },
+  {
+    path:'signout',
+    component:SignoutComponent
   }
 ];
 

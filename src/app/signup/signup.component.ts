@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsApiService } from '../news-api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
   registerForm: FormGroup;
     submitted = false;
-  constructor(private service:NewsApiService, private formBuilder: FormBuilder) { }
+  constructor(private service:NewsApiService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -21,9 +22,22 @@ export class SignupComponent implements OnInit {
       cpassword: ['', [Validators.required, Validators.minLength(6)]]
 
   });  
+}
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
+      this.submitted = true;
+
+      // stop here if form is invalid
+      if (this.registerForm.invalid) {
+          return;
+      }
+      this.router.navigate(['signin'])
+      
+  }
 
     
-  }
+  
 
 
 

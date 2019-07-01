@@ -1,3 +1,18 @@
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: antiquewhite;
+
+}
+.navlink{
+    color:black;
+}
+
 .card{
-    width: 80%;
+    margin-top: 4%;
+    margin-left: 2%;
+}
+.btn{
+    margin-left: 2%;
 }

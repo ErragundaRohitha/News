@@ -44,10 +44,9 @@ favourite(){
  
   this.router.navigate(['favourites'])
 }
-login(){
-  sessionStorage.setItem('isloggedin','no')
-  this.router.navigate(['home'])
-  }
+signout(){
+  this.router.navigate(['signout'])
+}
 
   }
 

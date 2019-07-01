@@ -12,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { SignoutComponent } from './signout/signout.component';
 
 
 @NgModule({
@@ -23,14 +26,17 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     LoginComponent,
     HomeComponent,
     SigninComponent,
-    FavouritesComponent
+    FavouritesComponent,
+  
+    SignoutComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [NewsApiService],
   bootstrap: [AppComponent]
